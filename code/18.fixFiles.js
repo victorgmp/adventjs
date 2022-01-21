@@ -1,9 +1,8 @@
 export default function fixFiles(files) {
   // ¡No olvides compartir tu solución en redes!
   const map = {};
-  const result = [];
 
-  files.forEach((file) => {
+  return files.map((file) => {
     if (!map[file]) {
       map[file] = 0;
     }
@@ -11,13 +10,10 @@ export default function fixFiles(files) {
     map[file] += 1;
 
     if (map[file] > 1) {
-      result.push(`${file}(${map[file] - 1})`);
-    } else {
-      result.push(file);
+      return `${file}(${map[file] - 1})`;
     }
+    return file;
   });
-
-  return result;
 }
 
 const files = ['photo', 'postcard', 'photo', 'photo', 'video'];
